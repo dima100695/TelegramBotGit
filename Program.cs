@@ -18,8 +18,8 @@ namespace TelegramBot
 
         static void Main(string[] args)
         {
-            var client = new TelegramBotClient("5873080141:AAFa6_qSdOQup01liMUtvkdM70t1QvJ1XSM");
-            client.StartReceiving(Update,Error);
+            var client = new TelegramBotClient("5873080141:AAFa6_qSdOQup01liMUtvkdM70t1QvJ1XSM"); // тут пишем телеграм токин
+            client.StartReceiving(Update,Error);  // тут два метода update - принимет и отправляети сообщение error - сообщает о ошибках
             Console.ReadKey();
            
 
@@ -33,13 +33,14 @@ namespace TelegramBot
         async static Task Update(ITelegramBotClient botClient, Update update, CancellationToken token)
         {
            var massage = update.Message;
-            if (massage.Text == "info")
+            if (massage.Text == "info") // есл входящее соббщение равно info 
             { 
 
                 await botClient.SendTextMessageAsync(massage.Chat.Id,"server good");
                 return;
 
             }
+
 
 
         }
